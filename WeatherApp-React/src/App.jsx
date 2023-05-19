@@ -2,6 +2,8 @@ import React, {useEffect, useState} from "react";
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
+import WeatherCard from "./components/WeatherCard.jsx";
+import {Dimmer, Loader} from "semantic-ui-react";
 
 function App() {
     const [lat, setLat] = useState(null);
@@ -24,31 +26,38 @@ function App() {
     }, [lat, long]);
 
     useEffect(() => {
-        if (data === undefined)return;
+        if (data === undefined) return;
         else {
-            console.log(data.name)
+            console.log(data)
         }
     }, [data]);
+
 
     const GetWeather = async () => {
         const response = await fetch(`${import.meta.env.VITE_REACT_APP_API_URL}/weather?lat=${lat}&lon=${long}&units=metric&appid=${import.meta.env.VITE_REACT_APP_API_KEY}`)
         const json = await response.json();// convert fetch response to json
         setData(json);
         setWeatherRecovered(true);
+        console.log("Weather data recovered");
     }
 
-    return lat === null && long === null ? (
+    return lat === null && long === null && weatherRecovered ? (
         <div className="App">
-            <h1>Loading latitude and longitude...</h1>
+            <Dimmer active>
+                <Loader>Loading weather data...</Loader>
+            </Dimmer>
         </div>
     ) :  (
         <div className="App">
-            <p>Latitude is {lat}</p>
-            <p>Longitude is {long}</p>
-            <h1>Weather App</h1>
-            <h2>Weather in your location</h2>
-            <h3>{data.name}</h3>
-
+            {(typeof data.main != 'undefined') ? (
+                <WeatherCard weatherData={data}/>
+            ): (
+                <div>
+                    <Dimmer active>
+                        <Loader>Loading weather data...</Loader>
+                    </Dimmer>
+                </div>
+            )}
         </div>
     )
 }
