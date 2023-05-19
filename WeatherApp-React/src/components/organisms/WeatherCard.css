@@ -7,7 +7,9 @@
     text-decoration: underline;
 }
 .main{
-    width: 700px;
+    /*width: 700px;*/
+    width: 70%;
+    height: 100%;
     border-radius: 15px;
     background-color: #01579b;
     box-shadow: #424242 0px 10px 10px 0px;
@@ -51,6 +53,7 @@
     justify-content: space-between;
 }
 .sunrise-sunset{
+    display: inline-flex;
      padding: 15px;
      color: whitesmoke;
      font-family: 'Recursive', sans-serif;

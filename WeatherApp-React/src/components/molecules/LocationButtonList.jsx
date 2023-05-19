@@ -1,6 +1,6 @@
 import React from "react";
 import './LocationButtonList.css'
-import LocationButton from "./LocationButton";
+import LocationButton from "../atoms/LocationButton.jsx";
 
 const LocationButtonList = ({locationList, clickFunction}) => {
     return (
