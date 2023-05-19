@@ -22,12 +22,14 @@
     border-radius: 20px 20px 0 0;
     font-family: 'Recursive', sans-serif;
     display: flex;
+    text-align: center;
+    vertical-align: center;
     justify-content: space-between;
 }
 .header{
     background-color: #424242;
     color: whitesmoke;
-    padding: 10px;
+    padding-left: 10px;
     font-size: 28px;
     border-radius: 15px 15px 0 0;
     font-family: 'Recursive', sans-serif;
@@ -69,5 +71,8 @@
 .button{
     width: 35px;
     height: 35px;
+}
+.info-line{
+    padding-inline: 1vw;
 }
 

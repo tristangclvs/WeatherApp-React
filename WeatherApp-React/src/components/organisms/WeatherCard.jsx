@@ -30,12 +30,11 @@ const WeatherCard = ({weatherData}) => {
     // RENDER
     return (
         <div className="main">
-
             <div className="top">
                 <p className="header">{weatherData.name}</p>
                 <Button className="button" inverted color='blue' onClick={refresh} circular icon='refresh' />
             </div>
-            <div className="flex">
+            <div className="flex info-line">
                 <p className="day">Day: {moment().format('dddd')}, {moment().format('LL')}</p>
                 <p className="description">
                     <IconContext.Provider value={{ size: 20 }}>
@@ -43,11 +42,11 @@ const WeatherCard = ({weatherData}) => {
                     </IconContext.Provider>
                     &nbsp; {weatherDescription}</p>
             </div>
-            <div className="flex">
+            <div className="flex info-line">
                 <p className="temp">Temperature: <span style={{color: fontColor}}>{weatherData.main.temp} &deg;C</span></p>
                 <p className="temp">Humidity: {weatherData.main.humidity} %</p>
             </div>
-            <div className="flex">
+            <div className="flex info-line">
                 <p className="sunrise-sunset">
                     <IconContext.Provider value={{ size: 20 }}>
                         <BsSunrise />
