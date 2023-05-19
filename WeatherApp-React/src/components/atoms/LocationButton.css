@@ -1,0 +1,9 @@
+.location-button{
+    font-size: 3em;
+    margin-inline: 2vw;
+    height: 10vh;
+    width: 10vw;
+}
+.location-button-text{
+    font-size: 2em;
+}
